@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "825306918811",
+    "project_id": "xtreme-flutter-weekend",
+    "storage_bucket": "xtreme-flutter-weekend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825306918811:android:17dd323cda91b20eca7b3e",
+        "android_client_info": {
+          "package_name": "xtreme.flutter.weekend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1YUV_yr0lYMgiUsOJT6fnJFi3cCleiKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
