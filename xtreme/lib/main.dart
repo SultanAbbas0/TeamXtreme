@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: "AIzaSyDqqC6er8Cmr2IFv9HlBihUOk66EQVWsW0",
-          authDomain: "xtreme-flutter-weekend.firebaseapp.com",
-          projectId: "xtreme-flutter-weekend",
-          storageBucket: "xtreme-flutter-weekend.appspot.com",
-          messagingSenderId: "825306918811",
-          appId: "1:825306918811:web:9376181dd603f36cca7b3e"));
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyDqqC6er8Cmr2IFv9HlBihUOk66EQVWsW0",
+      authDomain: "xtreme-flutter-weekend.firebaseapp.com",
+      projectId: "xtreme-flutter-weekend",
+      storageBucket: "xtreme-flutter-weekend.appspot.com",
+      messagingSenderId: "825306918811",
+      appId: "1:825306918811:web:9376181dd603f36cca7b3e",
+    ),
+  );
 
   runApp(const MyApp());
 }
