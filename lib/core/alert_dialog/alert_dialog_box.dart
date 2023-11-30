@@ -30,7 +30,7 @@ class AlertDialogBox {
               : null,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          backgroundColor: kBackground,
+          backgroundColor: backgroundColor,
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -101,7 +101,7 @@ class AlertDialogBox {
               : null,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          backgroundColor: kBackground,
+          backgroundColor: backgroundColor,
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -152,7 +152,7 @@ class AlertDialogBox {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: kBackground,
+          backgroundColor: backgroundColor,
           content: Container(
             constraints: BoxConstraints(
               minHeight: height != null
@@ -179,7 +179,7 @@ class AlertDialogBox {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: kBackground,
+          backgroundColor: backgroundColor,
           content: Container(
             constraints: BoxConstraints(
               minHeight: height != null

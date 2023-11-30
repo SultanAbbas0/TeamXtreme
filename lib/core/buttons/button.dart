@@ -29,7 +29,7 @@ class _ButtonState extends State<Button> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory,
-        primary: widget.color ?? primary,
+        primary: widget.color ?? primaryColor,
         minimumSize: Size(widget.width, widget.height),
       ),
       onPressed: widget.onPress,

@@ -227,9 +227,9 @@ class _BodyState extends State<_Body> {
                         width: 200.0,
                         height: 200.0,
                         child: RefreshProgressIndicator(
-                          backgroundColor: kBackground,
+                          backgroundColor: backgroundColor,
                           strokeWidth: 10,
-                          color: primary,
+                          color: primaryColor,
                         ),
                       ),
                     ),

@@ -93,8 +93,9 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
           labelStyle: widget.labelStyle,
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color:
-                      widget.isDisable ? kWhite : widget.borderColor ?? primary,
+                  color: widget.isDisable
+                      ? kWhite
+                      : widget.borderColor ?? primaryColor,
                   width: 2),
               borderRadius: BorderRadius.circular(8)),
           focusedBorder: OutlineInputBorder(
@@ -125,7 +126,7 @@ class _CopyIconState extends State<CopyIcon> {
       },
       child: Icon(
         Icons.copy,
-        color: primary,
+        color: primaryColor,
         size: 30,
       ),
     );

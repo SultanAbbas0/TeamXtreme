@@ -41,14 +41,14 @@ class _DropDownMenuState extends State<DropDownMenu> {
       width: widget.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: primary,
+        color: primaryColor,
       ),
       child: Padding(
         padding: widget.isMenu
             ? const EdgeInsets.symmetric(horizontal: 10)
             : const EdgeInsets.symmetric(horizontal: 0),
         child: DropdownButton<String>(
-            dropdownColor: primary,
+            dropdownColor: primaryColor,
             borderRadius: BorderRadius.circular(10),
             menuMaxHeight: 300,
             // alignment: Alignment.centerLeft,
@@ -60,7 +60,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
                   )
                 : Icon(
                     Icons.check_box_outline_blank_sharp,
-                    color: kBackground,
+                    color: backgroundColor,
                     size: 1,
                   ),
             // dropdownColor: kDark1,
