@@ -26,6 +26,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
         data: (data) {
           if (data == null) return SignInView();
           return Scaffold(
+            backgroundColor: primaryColor,
             bottomNavigationBar: Consumer(builder: (context, ref, child) {
               return BottomNavigationBar(
                 onTap: (index) {
@@ -35,26 +36,14 @@ class _WrapperState extends ConsumerState<Wrapper> {
                 items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home),
-                    activeIcon: Icon(
-                      Icons.home,
-                      color: primaryColor,
-                    ),
                     label: "Home",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    activeIcon: Icon(
-                      Icons.home,
-                      color: primaryColor,
-                    ),
-                    label: "Events",
+                    icon: Icon(Icons.person),
+                    label: "Profile",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    activeIcon: Icon(
-                      Icons.home,
-                      color: primaryColor,
-                    ),
+                    icon: Icon(Icons.settings),
                     label: "Settings",
                   ),
                 ],

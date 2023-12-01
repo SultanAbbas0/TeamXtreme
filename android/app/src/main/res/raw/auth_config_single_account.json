@@ -1,0 +1,16 @@
+{
+  "client_id": "0d54409a-f271-4e35-8092-0a2039f9a41d",
+  "authorization_user_agent": "DEFAULT",
+  "redirect_uri": "msauth://xtreme.flutter.weekend/EDYq7iL19etsSABlNziZhAWTcpY%3D",
+  "broker_redirect_uri_registered": true,
+  "account_mode": "SINGLE",
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "29b4b088-d27d-4129-b9f9-8637b59ea4b3"
+      }
+    }
+  ]
+}
