@@ -7,7 +7,7 @@ class CourseEvent {
   Timestamp endDate;
   Timestamp startDate;
   String material;
-  GeoPoint place;
+  String place;
   String title;
 
   CourseEvent({
@@ -24,7 +24,7 @@ class CourseEvent {
     Timestamp? endDate,
     Timestamp? startDate,
     String? material,
-    GeoPoint? place,
+    String? place,
     String? title,
   }) {
     return CourseEvent(
@@ -54,7 +54,7 @@ class CourseEvent {
       endDate: map['endDate'] as Timestamp,
       startDate: map['startDate'] as Timestamp,
       material: map['material'] as String,
-      place: map['place'] as GeoPoint,
+      place: map['place'] as String,
       title: map['title'] as String,
     );
   }

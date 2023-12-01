@@ -7,7 +7,7 @@ class ClubEvent {
   String description;
   String icon;
   String organizer;
-  GeoPoint place;
+  String place;
   String registrationLink;
   String title;
 
@@ -26,7 +26,7 @@ class ClubEvent {
     String? description,
     String? icon,
     String? organizer,
-    GeoPoint? place,
+    String? place,
     String? registrationLink,
     String? title,
   }) {
@@ -59,7 +59,7 @@ class ClubEvent {
       description: map['description'] as String,
       icon: map['icon'] as String,
       organizer: map['organizer'] as String,
-      place: map['place'] as GeoPoint, // TODO:
+      place: map['place'] as String, // TODO:
       registrationLink: map['registrationLink'] as String,
       title: map['title'] as String,
     );
