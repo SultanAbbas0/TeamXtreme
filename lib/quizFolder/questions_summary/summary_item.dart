@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import 'package:quiz_app/quizFolder/questions_summary/question_identifier.dart';
+import 'question_identifier.dart';
 
 class SummaryItem extends StatelessWidget {
   const SummaryItem(this.itemData, {super.key});
@@ -10,8 +9,7 @@ class SummaryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isCorrectAnswer =
-        itemData['user_answer'] == itemData['correct_answer'];
+    final isCorrectAnswer = itemData['user_answer'] == itemData['correct_answer'];
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -31,7 +29,7 @@ class SummaryItem extends StatelessWidget {
               children: [
                 Text(
                   itemData['question'] as String,
-                  style: GoogleFonts.lato(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
