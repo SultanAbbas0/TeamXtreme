@@ -12,7 +12,9 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
 
+import 'core/constants/colors.dart';
 import 'home/views/home_screen_view.dart';
+import 'wrapper/wrapper.dart';
 
 /// This sample app shows an app with two screens.
 ///
@@ -22,6 +24,8 @@ import 'home/views/home_screen_view.dart';
 /// The buttons use context.go() to navigate to each destination. On mobile
 /// devices, each destination is deep-linkable and on the web, can be navigated
 /// to using the address bar.
+///
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -59,13 +63,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeScreen();
+        return Wrapper();
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'details',
           builder: (BuildContext context, GoRouterState state) {
-            return const DetailsScreen();
+            return DetailsScreen();
           },
         ),
       ],
@@ -81,6 +85,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData(
+          // useMaterial3: true,
+          colorScheme: const ColorScheme(
+        brightness: Brightness.dark,
+        background: backgroundColor,
+        onBackground: textColor,
+        primary: primaryColor,
+        onPrimary: primaryFgColor,
+        secondary: kWhite,
+        onSecondary: secondaryFgColor,
+        tertiary: accentColor,
+        onTertiary: accentFgColor,
+        surface: backgroundColor,
+        onSurface: textColor,
+        error: Brightness.dark == Brightness.light
+            ? Color(0xffB3261E)
+            : Color(0xffF2B8B5),
+        onError: Brightness.dark == Brightness.light
+            ? Color(0xffFFFFFF)
+            : Color(0xff601410),
+      )),
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,

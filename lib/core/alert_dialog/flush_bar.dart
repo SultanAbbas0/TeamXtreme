@@ -132,7 +132,7 @@ class _FlushBarState extends State<FlushBar> with TickerProviderStateMixin {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primary),
+                                color: primaryColor),
                             width: double.maxFinite,
                             height: double.maxFinite,
                             child: Center(

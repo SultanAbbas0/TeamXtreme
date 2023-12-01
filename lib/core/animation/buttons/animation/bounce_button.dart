@@ -55,12 +55,12 @@ class RoundedButton extends StatelessWidget {
                   (dense ? null : EdgeInsets.symmetric(vertical: 10.0)),
               decoration: BoxDecoration(
                 borderRadius: borderRadius ?? kBorderRadius10,
-                color: isFilled ? (buttonColor ?? primary) : kTransparent,
+                color: isFilled ? (buttonColor ?? primaryColor) : kTransparent,
                 border: isFilled
                     ? null
                     : Border.all(
                         width: 1.5,
-                        color: borderColor ?? accent,
+                        color: borderColor ?? accentColor,
                       ),
               ),
               child: Text(
