@@ -30,7 +30,10 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const Text(
                       "Hi Sameer!",
-                      style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold),
                     ), //Text here is the name of the user
                     Container(
                       height: 50,
@@ -71,7 +74,8 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
               child: ClipRRect(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50), topRight: Radius.circular(50)),
             child: Container(
               color: Colors.grey[100],
             ),
