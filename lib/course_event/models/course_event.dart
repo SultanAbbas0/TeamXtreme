@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CourseEvent {
   String course;
+  String category;
   Timestamp endDate;
   Timestamp startDate;
   String material;
@@ -12,6 +13,7 @@ class CourseEvent {
 
   CourseEvent({
     required this.course,
+    required this.category,
     required this.endDate,
     required this.startDate,
     required this.material,
@@ -21,6 +23,7 @@ class CourseEvent {
 
   CourseEvent copyWith({
     String? course,
+    String? category,
     Timestamp? endDate,
     Timestamp? startDate,
     String? material,
@@ -29,6 +32,7 @@ class CourseEvent {
   }) {
     return CourseEvent(
       course: course ?? this.course,
+      category: category ?? this.category,
       endDate: endDate ?? this.endDate,
       startDate: startDate ?? this.startDate,
       material: material ?? this.material,
@@ -40,6 +44,7 @@ class CourseEvent {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'course': course,
+      'category': category,
       'endDate': endDate,
       'startDate': startDate,
       'material': material,
@@ -51,6 +56,7 @@ class CourseEvent {
   factory CourseEvent.fromMap(Map<String, dynamic> map) {
     return CourseEvent(
       course: map['course'] as String,
+      category: map['category'] as String,
       endDate: map['endDate'] as Timestamp,
       startDate: map['startDate'] as Timestamp,
       material: map['material'] as String,
@@ -66,7 +72,7 @@ class CourseEvent {
 
   @override
   String toString() {
-    return 'CourseEvent(course: $course, endDate: $endDate, startDate: $startDate, material: $material, place: $place, title: $title)';
+    return 'CourseEvent(course: $course, category: $category, endDate: $endDate, startDate: $startDate, material: $material, place: $place, title: $title)';
   }
 
   @override
@@ -74,6 +80,7 @@ class CourseEvent {
     if (identical(this, other)) return true;
 
     return other.course == course &&
+        other.category == category &&
         other.endDate == endDate &&
         other.startDate == startDate &&
         other.material == material &&
@@ -84,6 +91,7 @@ class CourseEvent {
   @override
   int get hashCode {
     return course.hashCode ^
+        category.hashCode ^
         endDate.hashCode ^
         startDate.hashCode ^
         material.hashCode ^
