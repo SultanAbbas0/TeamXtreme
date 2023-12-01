@@ -41,10 +41,8 @@ void main() async {
   SharedPreferences.setMockInitialValues({});
 
   await EasyLocalization.ensureInitialized();
-  print((await FirebaseFirestore.instance.collection('club-event').get())
-      .docs
-      .first
-      .data());
+
+  print((await FirebaseFirestore.instance.collection('club-event').get()).docs.first.data());
   runApp(ProviderScope(
     child: EasyLocalization(
         supportedLocales: const [
@@ -99,12 +97,8 @@ class MyApp extends StatelessWidget {
         onTertiary: accentFgColor,
         surface: backgroundColor,
         onSurface: textColor,
-        error: Brightness.dark == Brightness.light
-            ? Color(0xffB3261E)
-            : Color(0xffF2B8B5),
-        onError: Brightness.dark == Brightness.light
-            ? Color(0xffFFFFFF)
-            : Color(0xff601410),
+        error: Brightness.dark == Brightness.light ? Color(0xffB3261E) : Color(0xffF2B8B5),
+        onError: Brightness.dark == Brightness.light ? Color(0xffFFFFFF) : Color(0xff601410),
       )),
       locale: context.locale,
       supportedLocales: context.supportedLocales,
