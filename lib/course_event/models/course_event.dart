@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class CourseEvent {
   String course;
   Timestamp endDate;
-  Timestamp startEnd;
+  Timestamp startDate;
   String material;
   GeoPoint place;
   String title;
@@ -13,7 +13,7 @@ class CourseEvent {
   CourseEvent({
     required this.course,
     required this.endDate,
-    required this.startEnd,
+    required this.startDate,
     required this.material,
     required this.place,
     required this.title,
@@ -22,7 +22,7 @@ class CourseEvent {
   CourseEvent copyWith({
     String? course,
     Timestamp? endDate,
-    Timestamp? startEnd,
+    Timestamp? startDate,
     String? material,
     GeoPoint? place,
     String? title,
@@ -30,7 +30,7 @@ class CourseEvent {
     return CourseEvent(
       course: course ?? this.course,
       endDate: endDate ?? this.endDate,
-      startEnd: startEnd ?? this.startEnd,
+      startDate: startDate ?? this.startDate,
       material: material ?? this.material,
       place: place ?? this.place,
       title: title ?? this.title,
@@ -41,7 +41,7 @@ class CourseEvent {
     return <String, dynamic>{
       'course': course,
       'endDate': endDate,
-      'startEnd': startEnd,
+      'startDate': startDate,
       'material': material,
       'place': place,
       'title': title,
@@ -52,7 +52,7 @@ class CourseEvent {
     return CourseEvent(
       course: map['course'] as String,
       endDate: map['endDate'] as Timestamp,
-      startEnd: map['startEnd'] as Timestamp,
+      startDate: map['startDate'] as Timestamp,
       material: map['material'] as String,
       place: map['place'] as GeoPoint,
       title: map['title'] as String,
@@ -66,7 +66,7 @@ class CourseEvent {
 
   @override
   String toString() {
-    return 'CourseEvent(course: $course, endDate: $endDate, startEnd: $startEnd, material: $material, place: $place, title: $title)';
+    return 'CourseEvent(course: $course, endDate: $endDate, startDate: $startDate, material: $material, place: $place, title: $title)';
   }
 
   @override
@@ -75,7 +75,7 @@ class CourseEvent {
 
     return other.course == course &&
         other.endDate == endDate &&
-        other.startEnd == startEnd &&
+        other.startDate == startDate &&
         other.material == material &&
         other.place == place &&
         other.title == title;
@@ -85,7 +85,7 @@ class CourseEvent {
   int get hashCode {
     return course.hashCode ^
         endDate.hashCode ^
-        startEnd.hashCode ^
+        startDate.hashCode ^
         material.hashCode ^
         place.hashCode ^
         title.hashCode;

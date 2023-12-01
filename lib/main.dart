@@ -10,7 +10,9 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xtreme/club_event/fetch_club_event.dart';
+import 'package:xtreme/course_event/fetch_course_event.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
+import 'package:xtreme/quiz/fetch_quiz.dart';
 
 import 'core/constants/colors.dart';
 import 'home/views/home_screen_view.dart';
@@ -42,6 +44,8 @@ void main() async {
 
   await EasyLocalization.ensureInitialized();
   print(await getClubEvents());
+  print(await getCourseEvents());
+  print(await getQuizes());
   runApp(ProviderScope(
     child: EasyLocalization(
         supportedLocales: const [
