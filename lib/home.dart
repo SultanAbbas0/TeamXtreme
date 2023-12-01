@@ -79,14 +79,46 @@ class _homePageState extends State<homePage> {
                 height: 25,
               ),
               Expanded(
-                  child: ClipRRect(
-                borderRadius: BorderRadius.only(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-                child: Container(
-                  color: Colors.grey[100],
+                    topRight: Radius.circular(50),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    color: Colors.grey[100],
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Up coming Quizes/Exams",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          height: 100,
+                          width: 150,
+                          margin: EdgeInsets.symmetric(vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-              ))
+              ),
             ],
           ),
         ),
