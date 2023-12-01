@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:xtreme/club_event/fetch_club_event.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
 
 import 'core/constants/colors.dart';
@@ -41,10 +41,7 @@ void main() async {
   SharedPreferences.setMockInitialValues({});
 
   await EasyLocalization.ensureInitialized();
-  print((await FirebaseFirestore.instance.collection('club-event').get())
-      .docs
-      .first
-      .data());
+  print(await getClubEvents());
   runApp(ProviderScope(
     child: EasyLocalization(
         supportedLocales: const [
