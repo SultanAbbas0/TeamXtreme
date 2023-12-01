@@ -45,6 +45,7 @@ dependencies:
   cached_network_image: ^3.3.0
   oauth2: ^2.0.2
   flutter_svg: ^2.0.9
+  flutter_colorpicker: ^1.0.3
 
 dev_dependencies:
   flutter_test:

@@ -2,10 +2,24 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:xtreme/core/constants/colors.dart';
+import 'package:xtreme/core/textfields/textfields.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   /// Constructs a [HomeScreen]
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late TextEditingController searchController;
+  @override
+  void initState() {
+    searchController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +63,8 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  child: const Text(
-                    "12 Dec 2023 ",
+                  child: Text(
+                    DateTime.now().toIso8601String().split("T").first,
                     style: TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
@@ -62,7 +76,11 @@ class HomeScreen extends StatelessWidget {
                   height: 20,
                 ),
                 // Search Bar
-                SearchBar(),
+                RoundedTextField(
+                  label: "Search",
+                  borderColor: kWhite.withAlpha(100),
+                  prefixWidget: Icon(Icons.search),
+                ),
               ],
             ),
           ),
@@ -76,35 +94,6 @@ class HomeScreen extends StatelessWidget {
               color: Colors.grey[100],
             ),
           ))
-        ],
-      ),
-    );
-  }
-
-  Container SearchBar() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
-      ),
-      padding: const EdgeInsets.all(12),
-      child: Row(
-        children: [
-          Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            "Search",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
         ],
       ),
     );

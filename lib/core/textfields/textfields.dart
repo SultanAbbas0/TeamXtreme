@@ -76,7 +76,8 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
         readOnly: widget.isDisable,
         controller: widget.controller,
         decoration: InputDecoration(
-          prefix: widget.prefixWidget,
+          prefixIcon: widget.prefixWidget,
+          // prefix: widget.prefixWidget,
           contentPadding: EdgeInsets.all(8),
           suffixIcon: widget.suffixWidget ??
               (!widget.noIcon ? null : CopyIcon(text: widget.controller?.text ?? widget.initialValue ?? "")),
@@ -86,8 +87,9 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
           floatingLabelStyle: t1,
           labelStyle: widget.labelStyle,
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: widget.isDisable ? kWhite : widget.borderColor ?? accentColor, width: 2),
-              borderRadius: BorderRadius.circular(5)),
+            borderSide: BorderSide(color: widget.isDisable ? kWhite : widget.borderColor ?? accentColor, width: 2),
+            borderRadius: BorderRadius.circular(5),
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: kAmber, width: 2),
             borderRadius: BorderRadius.circular(5),
