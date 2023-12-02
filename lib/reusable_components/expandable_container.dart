@@ -5,6 +5,8 @@ import 'package:xtreme/reusable_components/colored_circle.dart';
 import 'package:xtreme/reusable_components/number_circle.dart';
 import 'dart:math';
 
+import 'package:xtreme/upcoming_events/providers/courses_provider.dart';
+
 class ExpandableRoundedContainer extends ConsumerStatefulWidget {
   final String title;
   final int nEvents;
@@ -28,6 +30,29 @@ class ExpandableRoundedContainer extends ConsumerStatefulWidget {
 
 class ExpandableRoundedContainerState
     extends ConsumerState<ExpandableRoundedContainer> {
+  List<String> generateStringList(int n) {
+    List<String> stringList = [];
+
+    for (int i = 0; i < n; i++) {
+      String randomString = generateRandomString(); // Generate a random string
+      stringList.add(randomString);
+    }
+
+    return stringList;
+  }
+
+  String generateRandomString() {
+    const String chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    Random random = Random();
+    String randomString = '';
+
+    for (int i = 0; i < 10; i++) {
+      randomString += chars[random.nextInt(chars.length)];
+    }
+
+    return randomString;
+  }
+
   bool isExpanded = false;
   double animatedContainerHeight = 0;
   double animatedContainerHeight2 = 120;
@@ -117,11 +142,12 @@ class ExpandableRoundedContainerState
                           enteredScreen: enteredScreen,
                           delay: const Duration(milliseconds: 100),
                           child: Row(children: [
-                            NumberCircle(number: widget.nEvents),
+                            NumberCircle(
+                                number: widget.id != 0 ? widget.nEvents : 0),
                             const SizedBox(
                               width: 10,
                             ),
-                            ...coloredCircles
+                            ...(widget.id != 0 ? coloredCircles : []),
                           ]),
                         )
                     ],
@@ -140,14 +166,16 @@ class ExpandableRoundedContainerState
               ),
             ),
           ),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
-            height: animatedContainerHeight,
-          ),
+          if (widget.id != 0)
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 100),
+              height: animatedContainerHeight,
+            ),
           if (isExpanded)
             EventCardsList(
+              id: widget.id,
               colors: colors,
-              list: const ['1', '2', '3', '4'],
+              list: generateStringList(widget.id),
             ),
         ],
       ),
