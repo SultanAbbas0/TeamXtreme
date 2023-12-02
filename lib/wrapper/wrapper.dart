@@ -20,16 +20,15 @@ class Wrapper extends ConsumerStatefulWidget {
 
 class _WrapperState extends ConsumerState<Wrapper> {
   final List<Widget> _screens = [
-    const UpcomingEvents(),
+    const HomeScreen(),
     const UpcomingAcademics(),
     const ScannerScreen(),
-    const HomeScreen(),
+    const UpcomingEvents(),
     const DetailsScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       bottomNavigationBar: Consumer(builder: (context, ref, child) {
         return BottomNavigationBar(
@@ -52,7 +51,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
                 Icons.home,
                 color: primaryColor,
               ),
-              label: "academics",
+              label: "Academics",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.abc_outlined),
