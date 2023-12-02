@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // useMaterial3: true,
           colorScheme: const ColorScheme(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         background: backgroundColor,
         onBackground: textColor,
         primary: primaryColor,

@@ -56,8 +56,7 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
-          maxWidth: widget.expanded ? double.infinity : 300, maxHeight: 100),
+      constraints: BoxConstraints(maxWidth: widget.expanded ? double.infinity : 300, maxHeight: 100),
       child: TextFormField(
         keyboardType: widget.textInputType,
         inputFormatters: widget.formatter,
@@ -77,30 +76,23 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
         readOnly: widget.isDisable,
         controller: widget.controller,
         decoration: InputDecoration(
-          prefix: widget.prefixWidget,
+          prefixIcon: widget.prefixWidget,
+          // prefix: widget.prefixWidget,
           contentPadding: EdgeInsets.all(8),
           suffixIcon: widget.suffixWidget ??
-              (widget.noIcon
-                  ? null
-                  : CopyIcon(
-                      text: widget.controller?.text ??
-                          widget.initialValue ??
-                          "")),
+              (!widget.noIcon ? null : CopyIcon(text: widget.controller?.text ?? widget.initialValue ?? "")),
           hintText: widget.hint,
           hintStyle: widget.hintStyle,
           label: Text(widget.label),
           floatingLabelStyle: t1,
           labelStyle: widget.labelStyle,
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: widget.isDisable
-                      ? kWhite
-                      : widget.borderColor ?? primaryColor,
-                  width: 2),
-              borderRadius: BorderRadius.circular(8)),
+            borderSide: BorderSide(color: widget.isDisable ? kWhite : widget.borderColor ?? accentColor, width: 2),
+            borderRadius: BorderRadius.circular(5),
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: kAmber, width: 2),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
       ),

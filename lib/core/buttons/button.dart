@@ -10,13 +10,7 @@ class Button extends StatefulWidget {
   final double width;
   final Color? color;
 
-  Button(
-      {Key? key,
-      required this.onPress,
-      required this.text,
-      this.height = 60,
-      this.width = 150,
-      this.color})
+  Button({Key? key, required this.onPress, required this.text, this.height = 60, this.width = 150, this.color})
       : super(key: key);
 
   @override
@@ -29,7 +23,7 @@ class _ButtonState extends State<Button> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory,
-        primary: widget.color ?? primaryColor,
+        primary: widget.color ?? secondaryColor,
         minimumSize: Size(widget.width, widget.height),
       ),
       onPressed: widget.onPress,
