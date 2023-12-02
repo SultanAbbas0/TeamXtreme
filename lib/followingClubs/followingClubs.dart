@@ -14,7 +14,6 @@ class _followingClubsGridState extends State<followingClubsGrid> {
       title: 'Following Clubs Grid',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: bottomNev(),
         backgroundColor: const Color(0xFF007d40),
         body: SafeArea(
           child: Column(
@@ -25,7 +24,7 @@ class _followingClubsGridState extends State<followingClubsGrid> {
                   children: [
                     Container(
                       child: Image.asset(
-                        'assets/images/kfupm.png',
+                        'assets/ui/images/kfupm.png',
                         height: 60,
                         width: 80,
                         alignment: Alignment.center,
@@ -38,7 +37,7 @@ class _followingClubsGridState extends State<followingClubsGrid> {
                           Container(
                             height: 50,
                             width: 50,
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                               color: Colors.green[500],
                               borderRadius: BorderRadius.circular(12),
@@ -49,7 +48,7 @@ class _followingClubsGridState extends State<followingClubsGrid> {
                               size: 30,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Following Clubs Events',
                             style: TextStyle(
                               fontSize: 25,
@@ -60,7 +59,7 @@ class _followingClubsGridState extends State<followingClubsGrid> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -68,21 +67,21 @@ class _followingClubsGridState extends State<followingClubsGrid> {
               ),
               Expanded(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
                   ),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     color: Colors.grey[100],
                     child: Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.white,
                         ),
-                        child: MyGrid()),
+                        child: const MyGrid()),
                   ),
                 ),
               ),
@@ -95,6 +94,8 @@ class _followingClubsGridState extends State<followingClubsGrid> {
 }
 
 class MyGrid extends StatefulWidget {
+  const MyGrid({super.key});
+
   @override
   _MyGridState createState() => _MyGridState();
 }
@@ -117,7 +118,7 @@ class _MyGridState extends State<MyGrid> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       crossAxisCount: 2,
       children: List.generate(2, (index) {
         return GestureDetector(
@@ -129,7 +130,7 @@ class _MyGridState extends State<MyGrid> {
             });
           },
           child: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: colors[index],
@@ -142,25 +143,4 @@ class _MyGridState extends State<MyGrid> {
       }),
     );
   }
-}
-
-BottomNavigationBar bottomNev() {
-  return BottomNavigationBar(
-    unselectedItemColor: Colors.grey[400],
-    selectedItemColor: Color(0xFF007d40),
-    items: [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: "Home",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person),
-        label: "Profile",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        label: "Settings",
-      ),
-    ],
-  );
 }

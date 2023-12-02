@@ -56,7 +56,7 @@ class UpcomingEvents extends ConsumerWidget {
     nextSixDays.insert(1, 'Tomorrow');
     return Scaffold(
       // AppBar at the top of the app with a title.
-      appBar: AppBar(title: const Text('Upcoming Events')),
+      appBar: AppBar(title: const Text('Upcoming Academics')),
       body: ListView.builder(
         itemCount:
             7, // There are seven items in the list including 'Today' and 'Tomorrow'.

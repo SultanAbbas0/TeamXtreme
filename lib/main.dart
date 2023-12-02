@@ -60,7 +60,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return Wrapper();
+        return const Wrapper();
       },
       routes: <RouteBase>[
         GoRoute(
@@ -82,6 +82,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           // useMaterial3: true,
           colorScheme: const ColorScheme(

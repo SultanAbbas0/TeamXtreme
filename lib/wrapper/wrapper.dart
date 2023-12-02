@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:xtreme/core/constants/colors.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
+import 'package:xtreme/followingClubs/followingClubs.dart';
 import 'package:xtreme/home/views/home_screen_view.dart';
 import 'package:xtreme/qr_scanner/views/main_screen.dart';
+import 'package:xtreme/quizFolder/start_screen.dart';
 import 'package:xtreme/setting/settingScreen.dart';
 import 'package:xtreme/upcoming_academics/views/main_screen.dart';
 import 'package:xtreme/upcoming_events/views/main_screen.dart';
@@ -14,7 +16,7 @@ import 'package:xtreme/wrapper/providers/bottom_sheet_provider.dart';
 
 // stateful widget that allows the use of Riverpod for state management.
 class Wrapper extends ConsumerStatefulWidget {
-  Wrapper({super.key});
+  const Wrapper({super.key});
 
   @override
   ConsumerState<Wrapper> createState() => _WrapperState();
@@ -26,6 +28,8 @@ class _WrapperState extends ConsumerState<Wrapper> {
     const HomeScreen(),
     const ScannerScreen(),
     const UpcomingEvents(),
+    const followingClubsGrid(),
+    StartScreen(() {}),
     const SettingScreen(),
   ];
 
@@ -34,7 +38,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
     return ref.watch(userStream).when(
         data: (data) {
           // If the user data is null, show the SignInView for user authentication.
-          if (data == null) return SignInView();
+          if (data == null) return const SignInView();
           // Otherwise, display the main app structure with Scaffold.
           ref.read(fireuserStream);
           return Scaffold(
@@ -71,7 +75,23 @@ class _WrapperState extends ConsumerState<Wrapper> {
                       Icons.event_outlined,
                       color: primaryColor,
                     ),
-                    label: "Events",
+                    label: "Academics",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.people),
+                    activeIcon: Icon(
+                      Icons.settings,
+                      color: primaryColor,
+                    ),
+                    label: "Clubs",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.abc),
+                    activeIcon: Icon(
+                      Icons.settings,
+                      color: primaryColor,
+                    ),
+                    label: "Quiz",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.settings),
