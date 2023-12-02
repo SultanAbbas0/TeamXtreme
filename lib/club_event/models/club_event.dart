@@ -55,11 +55,11 @@ class ClubEvent {
 
   factory ClubEvent.fromMap(Map<String, dynamic> map) {
     return ClubEvent(
-      date: map['date'] as Timestamp, // TODO:
+      date: map['date'] as Timestamp,
       description: map['description'] as String,
       icon: map['icon'] as String,
       organizer: map['organizer'] as String,
-      place: map['place'] as String, // TODO:
+      place: map['place'] as String,
       registrationLink: map['registrationLink'] as String,
       title: map['title'] as String,
     );

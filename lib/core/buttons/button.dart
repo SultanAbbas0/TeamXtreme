@@ -6,11 +6,19 @@ import '../constants/text_styles.dart';
 class Button extends StatefulWidget {
   final String text;
   final Function() onPress;
+  // Default values are set to 60.
   final double height;
+  // Default values are set to 150.
   final double width;
   final Color? color;
 
-  Button({Key? key, required this.onPress, required this.text, this.height = 60, this.width = 150, this.color})
+  Button(
+      {Key? key,
+      required this.onPress,
+      required this.text,
+      this.height = 60,
+      this.width = 150,
+      this.color})
       : super(key: key);
 
   @override

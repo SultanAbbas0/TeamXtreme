@@ -63,6 +63,7 @@ class _SignInViewState extends ConsumerState<SignInView> {
                   SizedBox(
                     height: 20,
                   ),
+                  // button widget for submitting the login credentials.
                   Button(
                       width: 160,
                       height: 50,
@@ -71,6 +72,7 @@ class _SignInViewState extends ConsumerState<SignInView> {
                             .read(authProvider)
                             .signInWithEmailAndPassword(
                                 email.text, pass.text)) {
+                          // If authentication fails, show a notification.
                           TopNotification(
                               message: "Invalid Password/Email",
                               context: context);

@@ -11,6 +11,7 @@ import 'package:xtreme/sign_in/views/sign_in_view.dart';
 
 import 'package:xtreme/wrapper/providers/bottom_sheet_provider.dart';
 
+// stateful widget that allows the use of Riverpod for state management.
 class Wrapper extends ConsumerStatefulWidget {
   Wrapper({super.key});
 
@@ -19,6 +20,7 @@ class Wrapper extends ConsumerStatefulWidget {
 }
 
 class _WrapperState extends ConsumerState<Wrapper> {
+  // A list of screens (widgets) that the app can display.
   final List<Widget> _screens = [
     const UpcomingEvents(),
     const UpcomingAcademics(),
@@ -29,14 +31,17 @@ class _WrapperState extends ConsumerState<Wrapper> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      // BottomNavigationBar allows navigation between different screens.
       bottomNavigationBar: Consumer(builder: (context, ref, child) {
         return BottomNavigationBar(
+          // updates the bottomBarProvider state, which holds the index of the current screen.
           onTap: (index) {
             ref.watch(bottomBarProvider.notifier).state = index;
           },
+          // currentIndex is dynamically set based on the bottomBarProvider's state.
           currentIndex: ref.watch(bottomBarProvider),
+          // Define items in the BottomNavigationBar with icons and labels.
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -81,13 +86,17 @@ class _WrapperState extends ConsumerState<Wrapper> {
           ],
         );
       }),
+      // The body displays the current screen based on the bottomBarProvider's state.
       body: Consumer(builder: (context, ref, child) {
         return _screens[ref.watch(bottomBarProvider)];
       }),
     );
+    // The userStream is watched, and the app's behavior changes based on the stream's output.
     return ref.watch(userStream).when(
         data: (data) {
+          // If the user data is null, show the SignInView for user authentication.
           if (data == null) return SignInView();
+          // Otherwise, display the main app structure with Scaffold.
           return Scaffold(
             backgroundColor: primaryColor,
             bottomNavigationBar: Consumer(builder: (context, ref, child) {

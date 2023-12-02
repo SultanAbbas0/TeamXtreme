@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:xtreme/news/models/news.dart';
 
+/// Helper method to interact with Firebase on `news` collection
 Future<List<News>?> getNews() async {
   final events = await FirebaseFirestore.instance.collection('news').get();
 
