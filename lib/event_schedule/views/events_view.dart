@@ -10,7 +10,6 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
         backgroundColor: primaryColor,
         body: CustomScrollView(
@@ -35,14 +34,15 @@ class DetailsScreen extends StatelessWidget {
                     height: 40,
                   ),
                   Expanded(
-                      child: ClipRRect(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-                    child: Container(
-                      color: Colors.grey[100],
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                          topRight: Radius.circular(50)),
+                      child: Container(
+                        color: Colors.grey[100],
+                      ),
                     ),
-                  ),)
-                                  ColorPicker(pickerColor: pickerColor, onColorChanged: onColorChanged)
-
+                  )
                 ],
               ),
             )

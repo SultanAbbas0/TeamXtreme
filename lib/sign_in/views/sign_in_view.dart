@@ -28,51 +28,59 @@ class _SignInViewState extends ConsumerState<SignInView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: primaryColor,
         body: CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/ui/images/kfupm.png",
-                color: primaryColor,
-                width: 300,
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/ui/images/kfupm.png",
+                    color: secondaryFgColor,
+                    width: 300,
+                  ),
+                  Text.rich(TextSpan(
+                      text: "Sign In To your KFUPM ID",
+                      style: h1.copyWith(color: secondaryFgColor))),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  RoundedTextField(
+                    label: "Email",
+                    controller: email,
+                    borderColor: secondaryColor,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  RoundedTextField(
+                    label: "Password",
+                    controller: pass,
+                    borderColor: secondaryColor,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Button(
+                      width: 160,
+                      height: 50,
+                      onPress: () async {
+                        if (!await ref
+                            .read(authProvider)
+                            .signInWithEmailAndPassword(
+                                email.text, pass.text)) {
+                          TopNotification(
+                              message: "Invalid Password/Email",
+                              context: context);
+                        }
+                      },
+                      text: "Login In"),
+                ],
               ),
-              Text.rich(TextSpan(text: "Sign In To your KFUPM ID", style: h1.copyWith(color: accentColor))),
-              const SizedBox(
-                height: 50,
-              ),
-              RoundedTextField(
-                label: "Email",
-                controller: email,
-                borderColor: secondaryColor,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              RoundedTextField(
-                label: "Password",
-                controller: pass,
-                borderColor: secondaryColor,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Button(
-                  width: 160,
-                  height: 50,
-                  onPress: () async {
-                    if (!await ref.read(authProvider).signInWithEmailAndPassword(email.text, pass.text)) {
-                      TopNotification(message: "Invalid Password/Email", context: context);
-                    }
-                  },
-                  text: "Login In"),
-            ],
-          ),
-        ),
-      ],
-    ));
+            ),
+          ],
+        ));
   }
 }

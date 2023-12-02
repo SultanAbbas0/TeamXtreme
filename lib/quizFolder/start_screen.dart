@@ -19,7 +19,7 @@ class StartScreen extends StatelessWidget {
                 color: const Color.fromARGB(150, 255, 255, 255),
               ),
               Image.asset(
-                'assets/images/kfupm.png',
+                'assets/ui/images/kfupm.png',
                 width: 200,
                 color: const Color.fromARGB(150, 255, 255, 255),
               ),

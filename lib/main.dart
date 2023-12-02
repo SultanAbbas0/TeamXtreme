@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // useMaterial3: true,
           colorScheme: const ColorScheme(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         background: backgroundColor,
         onBackground: textColor,
         primary: primaryColor,
@@ -100,8 +100,12 @@ class MyApp extends StatelessWidget {
         onTertiary: accentFgColor,
         surface: backgroundColor,
         onSurface: textColor,
-        error: Brightness.dark == Brightness.light ? Color(0xffB3261E) : Color(0xffF2B8B5),
-        onError: Brightness.dark == Brightness.light ? Color(0xffFFFFFF) : Color(0xff601410),
+        error: Brightness.dark == Brightness.light
+            ? Color(0xffB3261E)
+            : Color(0xffF2B8B5),
+        onError: Brightness.dark == Brightness.light
+            ? Color(0xffFFFFFF)
+            : Color(0xff601410),
       )),
       locale: context.locale,
       supportedLocales: context.supportedLocales,

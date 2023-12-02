@@ -7,7 +7,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:TeamXtreme/lib/home/views/carsouelContainers.dart';
 
 class HomeScreen extends StatefulWidget {
-
   const HomeScreen({super.key});
 
   @override
@@ -15,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   final int numberOfItems = 5; //
   final List<String> quizesNames = [
     "Math 208 Assignment",
@@ -37,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: bottomNev(),
+        // bottomNavigationBar: bottomNev(),
         backgroundColor: const Color(0xFF007d40),
         body: SafeArea(
           child: Column(
@@ -49,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/images/kfupm.png',
+                        'assets/ui/images/kfupm.png',
                         height: 60,
                         width: 80,
                         alignment: Alignment.center,
@@ -98,7 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     SearchBar(),
                   ],
                 ),
-
               ),
               SizedBox(
                 height: 25,
