@@ -48,7 +48,7 @@ class ExpandableRoundedContainerState
 
   @override
   Widget build(BuildContext context) {
-    var random = Random(42);
+    var random = Random(50);
 
     Color getRandomColor() {
       Color randomColor;
@@ -72,7 +72,7 @@ class ExpandableRoundedContainerState
       coloredCircles.add(ColoredCircle(color: color));
       colors.add(color);
     }
-    random = Random(42);
+    random = Random(50);
     final x = ref.watch(widget.cardProvider);
 
     if (x != widget.id && isExpanded) {
