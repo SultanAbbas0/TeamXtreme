@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:xtreme/reusable_components/expandable_container.dart';
 import 'package:xtreme/upcoming_academics/providers/card_id_provider.dart';
+import 'package:xtreme/upcoming_events/providers/courses_provider.dart';
 
-class UpcomingAcademics extends StatelessWidget {
+class UpcomingAcademics extends ConsumerWidget {
   const UpcomingAcademics({super.key});
 
   /// generates a list of the next six days, starting from today.
@@ -22,10 +24,11 @@ class UpcomingAcademics extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     final nextSixDays = getNextSixDays();
     nextSixDays.insert(0, 'Today');
     nextSixDays.insert(1, 'Tomorrow');
+    final courses = ref.read(coursesProvider);
     return Scaffold(
       // AppBar at the top of the app with a title.
       appBar: AppBar(title: const Text('Upcoming Academics')),
@@ -34,13 +37,11 @@ class UpcomingAcademics extends StatelessWidget {
             7, // There are seven items in the list including 'Today' and 'Tomorrow'.
         itemBuilder: (BuildContext context, int index) {
           return ExpandableRoundedContainer(
-            title:
-                nextSixDays[index], // Set the title to the corresponding day.
-            text:
-                "hi", // Placeholder text, it will replaced with actual event details.
+            title: nextSixDays[index],
+            nEvents: 2,
             id: index,
-            cardProvider:
-                cardIdProvider, // Provider for managing state related to card IDs.
+            cardProvider: cardIdProvider,
+            courses: courses,
           );
         },
       ),

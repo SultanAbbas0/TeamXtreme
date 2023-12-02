@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:xtreme/reusable_components/card_list.dart';
+import 'package:xtreme/reusable_components/colored_circle.dart';
+import 'package:xtreme/reusable_components/number_circle.dart';
+import 'dart:math';
 
 class ExpandableRoundedContainer extends ConsumerStatefulWidget {
   final String title;
-  final String text;
+  final int nEvents;
   final int id;
+  final courses;
   final cardProvider;
 
   const ExpandableRoundedContainer({
     Key? key,
     required this.title,
+    required this.nEvents,
     required this.id,
-    required this.text,
     required this.cardProvider,
+    required this.courses,
   }) : super(key: key);
 
   @override
@@ -43,6 +48,31 @@ class ExpandableRoundedContainerState
 
   @override
   Widget build(BuildContext context) {
+    var random = Random(50);
+
+    Color getRandomColor() {
+      Color randomColor;
+
+      do {
+        randomColor = Color.fromARGB(
+          255,
+          random.nextInt(256),
+          random.nextInt(256),
+          random.nextInt(256),
+        );
+      } while (randomColor == Colors.white);
+
+      return randomColor;
+    }
+
+    List coloredCircles = [];
+    List colors = [];
+    for (var i = 0; i < widget.nEvents; i++) {
+      final color = getRandomColor();
+      coloredCircles.add(ColoredCircle(color: color));
+      colors.add(color);
+    }
+    random = Random(50);
     final x = ref.watch(widget.cardProvider);
 
     if (x != widget.id && isExpanded) {
@@ -86,14 +116,13 @@ class ExpandableRoundedContainerState
                         DelayedWidget(
                           enteredScreen: enteredScreen,
                           delay: const Duration(milliseconds: 100),
-                          child: const Text(
-                            "N events",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                          child: Row(children: [
+                            NumberCircle(number: widget.nEvents),
+                            const SizedBox(
+                              width: 10,
                             ),
-                          ),
+                            ...coloredCircles
+                          ]),
                         )
                     ],
                   ),
@@ -116,8 +145,9 @@ class ExpandableRoundedContainerState
             height: animatedContainerHeight,
           ),
           if (isExpanded)
-            const EventCardsList(
-              list: ["1", "2", "3"],
+            EventCardsList(
+              colors: colors,
+              list: const ['1', '2', '3', '4'],
             ),
         ],
       ),
