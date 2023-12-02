@@ -6,10 +6,23 @@ import 'package:xtreme/upcoming_events/providers/courses_provider.dart';
 class EventCardsList extends ConsumerWidget {
   final colors;
 
-  const EventCardsList({super.key, required this.list, required this.colors});
+  final id;
+
+  const EventCardsList(
+      {super.key, required this.list, required this.colors, required this.id});
   final List<String> list;
+
   @override
   Widget build(BuildContext context, ref) {
+    final List days = [
+      "Saturday",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ];
     final x = ref.watch(coursesProvider);
     return IntrinsicHeight(
       child: Row(
@@ -34,7 +47,7 @@ class EventCardsList extends ConsumerWidget {
                               list.indexOf(text) == list.length - 1 ? 0 : 16),
                       child: x.when(
                         data: (data) {
-                          final objects = data["Saturday"]["objects"];
+                          final objects = data[days[id]]["objects"];
                           return EventCard(
                             height: 100,
                             object: objects[list.indexOf(text)],
