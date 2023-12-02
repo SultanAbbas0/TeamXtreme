@@ -15,6 +15,7 @@ class UpcomingEvents extends ConsumerWidget {
     final List<String> nextSixDays = [];
     final DateTime now = DateTime.now();
 
+    // Loop to calculate the next six days from the current date.
     for (int i = 0; i < 5; i++) {
       final DateTime nextDay = now.add(Duration(days: i + 2));
       final String dayName = DateFormat('EEEE').format(nextDay);
@@ -54,9 +55,11 @@ class UpcomingEvents extends ConsumerWidget {
     nextSixDays.insert(0, 'Today');
     nextSixDays.insert(1, 'Tomorrow');
     return Scaffold(
+      // AppBar at the top of the app with a title.
       appBar: AppBar(title: const Text('Upcoming Events')),
       body: ListView.builder(
-        itemCount: 7,
+        itemCount:
+            7, // There are seven items in the list including 'Today' and 'Tomorrow'.
         itemBuilder: (BuildContext context, int index) {
           return ExpandableRoundedContainer(
             nEvents: courses.when(

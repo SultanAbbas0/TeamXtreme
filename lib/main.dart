@@ -12,7 +12,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xtreme/club_event/fetch_club_event.dart';
 import 'package:xtreme/upcoming_events/models/fetch_course_event.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
-import 'package:xtreme/quiz/fetch_quiz.dart';
 
 import 'core/constants/colors.dart';
 import 'home/views/home_screen_view.dart';
@@ -43,9 +42,6 @@ void main() async {
   SharedPreferences.setMockInitialValues({});
 
   await EasyLocalization.ensureInitialized();
-  print(await getClubEvents());
-  print(await getCourseEvents());
-  print(await getQuizes());
   runApp(ProviderScope(
     child: EasyLocalization(
         supportedLocales: const [

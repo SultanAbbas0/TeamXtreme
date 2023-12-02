@@ -2,9 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:TeamXtreme/lib/home/views/carsouelContainers.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // bottomNavigationBar: bottomNev(),
+        bottomNavigationBar: bottomNev(),
         backgroundColor: const Color(0xFF007d40),
         body: SafeArea(
           child: Column(
@@ -47,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/ui/images/kfupm.png',
+                        'assets/images/kfupm.png',
                         height: 60,
                         width: 80,
                         alignment: Alignment.center,
@@ -357,46 +356,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: CarouselSlider(
-                            options: CarouselOptions(
-                              aspectRatio: 2,
-                              autoPlay:
-                                  true, // This is the key for automatic sliding
-                              autoPlayInterval: Duration(
-                                  seconds: 5), // Time interval between slides
-                              enlargeCenterPage: true,
-                            ),
-                            items: [
-                              "Free Niggas",
-                              "Master Sameer",
-                              "Mahmod",
-                              "Sultan Abas",
-                              "The winners"
-                            ].map((i) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    padding:
-                                        EdgeInsets.only(left: 50, right: 50),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      'text $i',
-                                      style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  );
-                                },
-                              );
-                            }).toList(),
-                          ),
-                        ),
+                        carouselSliderBuilder()
                       ],
                     ),
                   ),
@@ -405,6 +365,35 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container SearchBar() {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white70,
+        borderRadius: BorderRadius.all(
+          Radius.circular(12),
+        ),
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        children: [
+          Icon(
+            Icons.search,
+            color: Colors.white,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          Text(
+            "Search",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -426,5 +415,92 @@ BottomNavigationBar bottomNev() {
         label: "Settings",
       ),
     ],
+  );
+}
+
+Widget carouselSliderBuilder() {
+  return Expanded(
+    child: CarouselSlider(
+      options: CarouselOptions(
+        aspectRatio: 2,
+        autoPlay: true, // This is the key for automatic sliding
+        autoPlayInterval: Duration(seconds: 5), // Time interval between slides
+        enlargeCenterPage: true,
+      ),
+      items: [
+        [
+          "Free Niggas",
+          "There are free  .................................",
+          "https/nigga.com"
+        ],
+        [
+          "Master Sameer",
+          "There are free  .................................",
+          "https/nigga.com"
+        ],
+        [
+          "Mahmod",
+          "There are free  .................................",
+          "https/nigga.com"
+        ],
+        [
+          "Sultan Abas",
+          "There are free  .................................",
+          "https/nigga.com"
+        ],
+        [
+          "The winners",
+          "There are free  .................................",
+          "https/nigga.com"
+        ]
+      ].map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              alignment: Alignment.centerLeft,
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      i[0],
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      i[1],
+                      style: TextStyle(
+                          fontSize: 14.0, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      onTap: () => launch(i[2]),
+                      child: Text(
+                        i[2],
+                        style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blue),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      }).toList(),
+    ),
   );
 }

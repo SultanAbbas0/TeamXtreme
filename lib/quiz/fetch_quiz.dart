@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:xtreme/quiz/models/quiz.dart';
 
-Future<List<Quiz>?> getQuizes() async {
+/// Helper method to interact with Firebase on `quiz` collection
+Future<List<Quiz>?> getQuizzes() async {
   final quizes = await FirebaseFirestore.instance.collection('quiz').get();
 
   if (quizes.docs.isNotEmpty) {
