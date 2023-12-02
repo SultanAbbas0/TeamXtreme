@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +14,14 @@ class FirestoreUserNotifier extends ChangeNotifier {
   Stream<User?> get authStateChange => _auth.authStateChanges();
   Stream<FirestoreUser> get firestoreUser => (fetchFirestoreuser());
 
-  Future<UserCredential?> signInWithEmailAndPassword(String email, String password) async {
+  Future<bool> signInWithEmailAndPassword(String email, String password) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      return true;
     } catch (e) {
-      rethrow;
+      print("(Authentication Failed): $e");
     }
+    return false;
   }
 
   Future<UserCredential?> signUpWithEmailAndPassword(String email, String password) async {

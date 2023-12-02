@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:TeamXtreme/lib/home/views/carsouelContainers.dart';
 
 class HomeScreen extends StatefulWidget {
+
   const HomeScreen({super.key});
 
   @override
@@ -13,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   final int numberOfItems = 5; //
   final List<String> quizesNames = [
     "Math 208 Assignment",
@@ -95,6 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SearchBar(),
                   ],
                 ),
+
               ),
               SizedBox(
                 height: 25,
@@ -404,35 +408,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Container SearchBar() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
-      ),
-      padding: const EdgeInsets.all(12),
-      child: Row(
-        children: [
-          Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            "Search",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
       ),
     );
   }

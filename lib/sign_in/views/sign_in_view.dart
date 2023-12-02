@@ -35,8 +35,8 @@ class _SignInViewState extends ConsumerState<SignInView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                "assets/ui/svgs/KFUPM_log.svg",
+              Image.asset(
+                "assets/ui/images/kfupm.png",
                 color: primaryColor,
                 width: 300,
               ),
@@ -47,6 +47,7 @@ class _SignInViewState extends ConsumerState<SignInView> {
               RoundedTextField(
                 label: "Email",
                 controller: email,
+                borderColor: secondaryColor,
               ),
               const SizedBox(
                 height: 20,
@@ -54,6 +55,7 @@ class _SignInViewState extends ConsumerState<SignInView> {
               RoundedTextField(
                 label: "Password",
                 controller: pass,
+                borderColor: secondaryColor,
               ),
               SizedBox(
                 height: 20,
@@ -62,10 +64,8 @@ class _SignInViewState extends ConsumerState<SignInView> {
                   width: 160,
                   height: 50,
                   onPress: () async {
-                    try {
-                      ref.read(authProvider).signInWithEmailAndPassword(email.text, pass.text);
-                    } catch (e) {
-                      TopNotification(message: e.toString(), context: context);
+                    if (!await ref.read(authProvider).signInWithEmailAndPassword(email.text, pass.text)) {
+                      TopNotification(message: "Invalid Password/Email", context: context);
                     }
                   },
                   text: "Login In"),
