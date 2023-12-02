@@ -47,19 +47,77 @@ class _SignInViewState extends ConsumerState<SignInView> {
                   const SizedBox(
                     height: 50,
                   ),
-                  RoundedTextField(
-                    label: "Email",
-                    controller: email,
-                    borderColor: secondaryColor,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    child: TextField(
+                      controller: email,
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: "Email",
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: Colors.black,
+                        ),
+                        contentPadding: EdgeInsets.all(8),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  RoundedTextField(
-                    label: "Password",
-                    controller: pass,
-                    borderColor: secondaryColor,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    child: TextField(
+                      controller: pass,
+                      obscureText: true,
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: "Password",
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.password,
+                          color: Colors.black,
+                        ),
+                        contentPadding: EdgeInsets.all(8),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
+
                   SizedBox(
                     height: 20,
                   ),
