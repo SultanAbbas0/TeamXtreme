@@ -4,6 +4,7 @@ import 'package:xtreme/core/constants/colors.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
 import 'package:xtreme/home/views/home_screen_view.dart';
 import 'package:xtreme/qr_scanner/views/main_screen.dart';
+import 'package:xtreme/setting/settingScreen.dart';
 import 'package:xtreme/upcoming_academics/views/main_screen.dart';
 import 'package:xtreme/upcoming_events/views/main_screen.dart';
 import 'package:xtreme/sign_in/providers/authentication_provider.dart';
@@ -23,10 +24,9 @@ class _WrapperState extends ConsumerState<Wrapper> {
   // A list of screens (widgets) that the app can display.
   final List<Widget> _screens = [
     const HomeScreen(),
-    const UpcomingAcademics(),
     const ScannerScreen(),
     const UpcomingEvents(),
-    const DetailsScreen(),
+    const SettingScreen(),
   ];
 
   @override
@@ -56,14 +56,6 @@ class _WrapperState extends ConsumerState<Wrapper> {
                       color: primaryColor,
                     ),
                     label: "Home",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.abc_outlined),
-                    activeIcon: Icon(
-                      Icons.abc_outlined,
-                      color: primaryColor,
-                    ),
-                    label: "Academics",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.qr_code_scanner_outlined),
