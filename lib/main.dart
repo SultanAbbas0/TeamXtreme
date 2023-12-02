@@ -70,7 +70,7 @@ final GoRouter _router = GoRouter(
         GoRoute(
           path: 'details',
           builder: (BuildContext context, GoRouterState state) {
-            return DetailsScreen();
+            return const DetailsScreen();
           },
         ),
       ],
