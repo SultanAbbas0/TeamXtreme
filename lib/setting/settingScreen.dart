@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class settingScreen extends StatefulWidget {
-  const settingScreen({super.key});
+class SettingScreen extends StatefulWidget {
+  const SettingScreen({super.key});
 
   @override
-  State<settingScreen> createState() => _settingScreenState();
+  State<SettingScreen> createState() => _SettingScreenState();
 }
 
-class _settingScreenState extends State<settingScreen> {
+class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     bool isSwitched = false;
@@ -16,7 +16,6 @@ class _settingScreenState extends State<settingScreen> {
       title: 'Setting',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: bottomNev(),
         backgroundColor: const Color(0xFF007d40),
         body: SafeArea(
           child: Column(
@@ -27,7 +26,7 @@ class _settingScreenState extends State<settingScreen> {
                   children: [
                     Container(
                       child: Image.asset(
-                        'assets/images/kfupm.png',
+                        'assets/ui/images/kfupm.png',
                         height: 60,
                         width: 80,
                         alignment: Alignment.center,
@@ -162,27 +161,6 @@ class _settingScreenState extends State<settingScreen> {
       ),
     );
   }
-}
-
-BottomNavigationBar bottomNev() {
-  return BottomNavigationBar(
-    unselectedItemColor: Colors.grey[400],
-    selectedItemColor: Colors.green[500],
-    items: [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: "Home",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person),
-        label: "Profile",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        label: "Settings",
-      ),
-    ],
-  );
 }
 
 class MyRadioButtons extends StatefulWidget {
