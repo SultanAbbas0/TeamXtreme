@@ -60,14 +60,18 @@ class FirestoreUser {
       name: map['name'] as String,
       id: map['id'] as String,
       profileImg: map['profileImg'] as String,
-      primaryColor: map['primaryColor'] != null ? Color(map['primaryColor'] as int) : null,
-      secondaryColor: map['secondaryColor'] != null ? Color(map['secondaryColor']) : null,
+      primaryColor: map['primaryColor'] != null
+          ? Color(map['primaryColor'] as int)
+          : null,
+      secondaryColor:
+          map['secondaryColor'] != null ? Color(map['secondaryColor']) : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory FirestoreUser.fromJson(String source) => FirestoreUser.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory FirestoreUser.fromJson(String source) =>
+      FirestoreUser.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -96,5 +100,9 @@ class FirestoreUser {
         profileImg.hashCode ^
         primaryColor.hashCode ^
         secondaryColor.hashCode;
+  }
+
+  get firstName {
+    return name.split(" ")[0];
   }
 }

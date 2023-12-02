@@ -15,8 +15,8 @@ class FirestoreUserNotifier extends ChangeNotifier {
   // Exposing authStateChanges stream to listen to authentication state changes.
   Stream<User?> get authStateChange => _auth.authStateChanges();
 
-  // Stream to get the Firestore user data.
-  Stream<FirestoreUser> get firestoreUser => (fetchFirestoreuser());
+  Stream<FirestoreUser?> get firestoreUser => (fetchFirestoreuser());
+
 
   /// Function to sign in with email and password using FirebaseAuth.
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
@@ -29,6 +29,10 @@ class FirestoreUserNotifier extends ChangeNotifier {
     }
     return false;
   }
+
+
+  get currentUser => _auth.currentUser;
+
 
   Future<UserCredential?> signUpWithEmailAndPassword(
       String email, String password) async {
@@ -48,6 +52,9 @@ class FirestoreUserNotifier extends ChangeNotifier {
   }
 
   Stream<FirestoreUser> fetchFirestoreuser() {
+    if (_auth.currentUser == null) {
+      return Stream.empty();
+    }
     return _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)
