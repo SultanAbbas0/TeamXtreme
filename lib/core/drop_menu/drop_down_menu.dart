@@ -11,9 +11,13 @@ class DropDownMenu extends StatefulWidget {
   final ValueSetter<dynamic> onSelect;
   final String? title;
   final String? initialValue;
+  // default false
   final bool matchTextField;
+  // default true
   final bool isMenu;
+  // default 300
   final double width;
+  // default 16
   final double fontsize;
 
   const DropDownMenu(
