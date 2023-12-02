@@ -31,13 +31,12 @@ class _WrapperState extends ConsumerState<Wrapper> {
 
   @override
   Widget build(BuildContext context) {
-
-    return ref.watch(fireuserStream).when(
-
+    return ref.watch(userStream).when(
         data: (data) {
           // If the user data is null, show the SignInView for user authentication.
           if (data == null) return SignInView();
           // Otherwise, display the main app structure with Scaffold.
+          ref.read(fireuserStream);
           return Scaffold(
             backgroundColor: kWhite,
             bottomNavigationBar: Consumer(builder: (context, ref, child) {

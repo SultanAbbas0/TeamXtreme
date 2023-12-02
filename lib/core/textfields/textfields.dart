@@ -100,11 +100,11 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
                     ? kWhite
                     : widget.borderColor ?? accentColor,
                 width: 2),
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(15),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: kAmber, width: 2),
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(15),
           ),
         ),
       ),
