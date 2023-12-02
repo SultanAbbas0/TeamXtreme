@@ -11,9 +11,14 @@ import 'package:xtreme/sign_in/models/firestore_user.dart';
 class FirestoreUserNotifier extends ChangeNotifier {
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  // Exposing authStateChanges stream to listen to authentication state changes.
   Stream<User?> get authStateChange => _auth.authStateChanges();
+
   Stream<FirestoreUser?> get firestoreUser => (fetchFirestoreuser());
 
+
+  /// Function to sign in with email and password using FirebaseAuth.
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
     try {
       await FirebaseAuth.instance
@@ -25,7 +30,9 @@ class FirestoreUserNotifier extends ChangeNotifier {
     return false;
   }
 
+
   get currentUser => _auth.currentUser;
+
 
   Future<UserCredential?> signUpWithEmailAndPassword(
       String email, String password) async {

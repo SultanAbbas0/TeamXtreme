@@ -11,6 +11,7 @@ import 'package:xtreme/sign_in/views/sign_in_view.dart';
 
 import 'package:xtreme/wrapper/providers/bottom_sheet_provider.dart';
 
+// stateful widget that allows the use of Riverpod for state management.
 class Wrapper extends ConsumerStatefulWidget {
   Wrapper({super.key});
 
@@ -19,6 +20,7 @@ class Wrapper extends ConsumerStatefulWidget {
 }
 
 class _WrapperState extends ConsumerState<Wrapper> {
+  // A list of screens (widgets) that the app can display.
   final List<Widget> _screens = [
     const HomeScreen(),
     const UpcomingAcademics(),
@@ -29,9 +31,13 @@ class _WrapperState extends ConsumerState<Wrapper> {
 
   @override
   Widget build(BuildContext context) {
+
     return ref.watch(fireuserStream).when(
+
         data: (data) {
+          // If the user data is null, show the SignInView for user authentication.
           if (data == null) return SignInView();
+          // Otherwise, display the main app structure with Scaffold.
           return Scaffold(
             backgroundColor: kWhite,
             bottomNavigationBar: Consumer(builder: (context, ref, child) {
