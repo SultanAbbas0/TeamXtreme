@@ -409,22 +409,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-BottomNavigationBar bottomNev() {
-  return BottomNavigationBar(
-    items: [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: "Home",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person),
-        label: "Profile",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        label: "Settings",
-      ),
-    ],
-  );
-}
