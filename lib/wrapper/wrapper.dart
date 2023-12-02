@@ -24,7 +24,6 @@ class _WrapperState extends ConsumerState<Wrapper> {
   // A list of screens (widgets) that the app can display.
   final List<Widget> _screens = [
     const HomeScreen(),
-    const UpcomingAcademics(),
     const ScannerScreen(),
     const UpcomingEvents(),
     const SettingScreen(),
@@ -57,14 +56,6 @@ class _WrapperState extends ConsumerState<Wrapper> {
                       color: primaryColor,
                     ),
                     label: "Home",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.abc_outlined),
-                    activeIcon: Icon(
-                      Icons.abc_outlined,
-                      color: primaryColor,
-                    ),
-                    label: "Academics",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.qr_code_scanner_outlined),

@@ -69,15 +69,6 @@ class _ScannerScreenState extends State<StatefulHookWidget> {
             fontWeight: FontWeight.w700,
           ),
         ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 26),
-            child: GestureDetector(
-              onTap: () {},
-              child: SvgPicture.asset('assets/images/image_picker.svg'),
-            ),
-          ),
-        ],
       ),
       body: Stack(
         alignment: Alignment.bottomCenter,
