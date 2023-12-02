@@ -124,7 +124,7 @@ class _MyGridState extends State<MyGrid> {
           onTap: () {
             setState(() {
               colors[index] = colors[index] == Colors.white
-                  ? Colors.green.shade100
+                  ? Colors.grey.shade200
                   : Colors.white;
             });
           },
