@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:xtreme/core/constants/colors.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
 import 'package:xtreme/home/views/home_screen_view.dart';
+import 'package:xtreme/qr_scanner/views/main_screen.dart';
 import 'package:xtreme/upcoming_academics/views/main_screen.dart';
 import 'package:xtreme/upcoming_events/views/main_screen.dart';
 import 'package:xtreme/wrapper/providers/bottom_sheet_provider.dart';
@@ -13,6 +14,7 @@ class Wrapper extends StatelessWidget {
   final List<Widget> _screens = [
     const UpcomingEvents(),
     const UpcomingAcademics(),
+    const ScannerScreen(),
     const HomeScreen(),
     const DetailsScreen(),
   ];
@@ -42,6 +44,14 @@ class Wrapper extends StatelessWidget {
                 color: primaryColor,
               ),
               label: "academics",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.abc_outlined),
+              activeIcon: Icon(
+                Icons.home,
+                color: primaryColor,
+              ),
+              label: "QR",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
