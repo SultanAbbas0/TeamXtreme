@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xtreme/core/constants/colors.dart';
 import 'package:xtreme/event_schedule/views/events_view.dart';
 import 'package:xtreme/followingClubs/followingClubs.dart';
@@ -67,7 +68,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
                       Icons.qr_code_scanner_outlined,
                       color: primaryColor,
                     ),
-                    label: "QR",
+                    label: "Attendance",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.event_outlined),
@@ -80,7 +81,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
                   BottomNavigationBarItem(
                     icon: Icon(Icons.people),
                     activeIcon: Icon(
-                      Icons.settings,
+                      Icons.people,
                       color: primaryColor,
                     ),
                     label: "Clubs",
@@ -88,7 +89,7 @@ class _WrapperState extends ConsumerState<Wrapper> {
                   BottomNavigationBarItem(
                     icon: Icon(Icons.abc),
                     activeIcon: Icon(
-                      Icons.settings,
+                      Icons.abc,
                       color: primaryColor,
                     ),
                     label: "Quiz",

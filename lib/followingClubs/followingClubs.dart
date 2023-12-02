@@ -112,7 +112,9 @@ class _MyGridState extends State<MyGrid> {
 
   final List<String> imageUrls = [
     'https://firebasestorage.googleapis.com/v0/b/xtreme-flutter-weekend.appspot.com/o/cc.png?alt=media&token=a5987727-b937-431b-b2e7-c164ffe9d08d',
-    "https://firebasestorage.googleapis.com/v0/b/xtreme-flutter-weekend.appspot.com/o/gdc.png?alt=media&token=fca1d949-c283-49da-8069-f2c93d078546"
+    "https://firebasestorage.googleapis.com/v0/b/xtreme-flutter-weekend.appspot.com/o/gdc.png?alt=media&token=fca1d949-c283-49da-8069-f2c93d078546",
+    "https://firebasestorage.googleapis.com/v0/b/xtreme-flutter-weekend.appspot.com/o/ie.png?alt=media&token=4a3daa74-7484-47f9-8cad-76250517472f",
+    "https://firebasestorage.googleapis.com/v0/b/xtreme-flutter-weekend.appspot.com/o/MT7uSDg4_400x400-removebg-preview.png?alt=media&token=a6273115-f152-4b7a-be99-89b7f9fb38be",
   ];
 
   @override
@@ -120,7 +122,7 @@ class _MyGridState extends State<MyGrid> {
     return GridView.count(
       padding: const EdgeInsets.all(10),
       crossAxisCount: 2,
-      children: List.generate(2, (index) {
+      children: List.generate(4, (index) {
         return GestureDetector(
           onTap: () {
             setState(() {
@@ -137,7 +139,7 @@ class _MyGridState extends State<MyGrid> {
             ),
             height: 100,
             width: 100,
-            child: Image.network(imageUrls[index]), // Use your image URLs here
+            child: Image.network(imageUrls[index]), // Use your image URLs here1
           ),
         );
       }),
