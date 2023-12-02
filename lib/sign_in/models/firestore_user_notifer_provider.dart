@@ -12,11 +12,12 @@ class FirestoreUserNotifier extends ChangeNotifier {
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Stream<User?> get authStateChange => _auth.authStateChanges();
-  Stream<FirestoreUser> get firestoreUser => (fetchFirestoreuser());
+  Stream<FirestoreUser?> get firestoreUser => (fetchFirestoreuser());
 
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
       return true;
     } catch (e) {
       print("(Authentication Failed): $e");
@@ -24,7 +25,10 @@ class FirestoreUserNotifier extends ChangeNotifier {
     return false;
   }
 
-  Future<UserCredential?> signUpWithEmailAndPassword(String email, String password) async {
+  get currentUser => _auth.currentUser;
+
+  Future<UserCredential?> signUpWithEmailAndPassword(
+      String email, String password) async {
     try {
       _auth.createUserWithEmailAndPassword(
         email: email,
@@ -41,6 +45,9 @@ class FirestoreUserNotifier extends ChangeNotifier {
   }
 
   Stream<FirestoreUser> fetchFirestoreuser() {
+    if (_auth.currentUser == null) {
+      return Stream.empty();
+    }
     return _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)

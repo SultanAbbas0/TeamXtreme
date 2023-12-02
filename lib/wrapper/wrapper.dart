@@ -29,68 +29,16 @@ class _WrapperState extends ConsumerState<Wrapper> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Consumer(builder: (context, ref, child) {
-        return BottomNavigationBar(
-          onTap: (index) {
-            ref.watch(bottomBarProvider.notifier).state = index;
-          },
-          currentIndex: ref.watch(bottomBarProvider),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              activeIcon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.abc_outlined),
-              activeIcon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: "Academics",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.abc_outlined),
-              activeIcon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: "QR",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              activeIcon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: "Events",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              activeIcon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: "Settings",
-            ),
-          ],
-        );
-      }),
-      body: Consumer(builder: (context, ref, child) {
-        return _screens[ref.watch(bottomBarProvider)];
-      }),
-    );
-    return ref.watch(userStream).when(
+    return ref.watch(fireuserStream).when(
         data: (data) {
           if (data == null) return SignInView();
           return Scaffold(
-            backgroundColor: primaryColor,
+            backgroundColor: kWhite,
             bottomNavigationBar: Consumer(builder: (context, ref, child) {
               return BottomNavigationBar(
+                // useLegacyColorScheme: true,
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: kWhite,
                 onTap: (index) {
                   ref.watch(bottomBarProvider.notifier).state = index;
                 },
@@ -98,14 +46,42 @@ class _WrapperState extends ConsumerState<Wrapper> {
                 items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home),
+                    activeIcon: Icon(
+                      Icons.home,
+                      color: primaryColor,
+                    ),
                     label: "Home",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: "Profile",
+                    icon: Icon(Icons.abc_outlined),
+                    activeIcon: Icon(
+                      Icons.abc_outlined,
+                      color: primaryColor,
+                    ),
+                    label: "Academics",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.qr_code_scanner_outlined),
+                    activeIcon: Icon(
+                      Icons.qr_code_scanner_outlined,
+                      color: primaryColor,
+                    ),
+                    label: "QR",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.event_outlined),
+                    activeIcon: Icon(
+                      Icons.event_outlined,
+                      color: primaryColor,
+                    ),
+                    label: "Events",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.settings),
+                    activeIcon: Icon(
+                      Icons.settings,
+                      color: primaryColor,
+                    ),
                     label: "Settings",
                   ),
                 ],
@@ -116,7 +92,15 @@ class _WrapperState extends ConsumerState<Wrapper> {
             }),
           );
         },
-        error: ((error, stackTrace) => Text("Error")),
-        loading: () => CircularProgressIndicator());
+        loading: () => const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+        error: (error, stackTrace) => const Scaffold(
+              body: Center(
+                child: Text("Error"),
+              ),
+            ));
   }
 }
