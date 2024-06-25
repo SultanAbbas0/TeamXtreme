@@ -1,16 +1,36 @@
 # xtreme
 
-A new Flutter project.
+
+## Introduction
+Introducing Xtreme Project for KFUPM Google Developer Students Club Flutter Hackathon, a redesigned KFUPM student mobile application
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Features
+The app offers a daily itinerary feature that is divided into three parts: morning, midday, and evening. Each section provides a food suggestion and an activity suggestion to help plan the day. 
 
-A few resources to get you started if this is your first Flutter project:
+Additionally, the app includes a groups page that allows users to connect with local groups participating in activities such as hiking. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Lastly, the app showcases hot spots in the area, including festivals, events, and fairs through the hots page.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+### Download and install the app by cloning the repository or downloading the zip file. 
+
+Use the command 
+
+```$ git clone https://github.com/SultanAbbas0/ThakaaTourismProject ``` to clone the repository.
+
+Install dependencies from pubspec.yaml by running flutter packages get from the project root (see using packages documentation for details and how to do this in the editor).
+
+Open and edit the project. Enjoy using Guidee to plan and organize your travels!
+
+## Screenshots:
+
+## Authors
+Sultan Abbas (SultanAbbas0)
+
+Sameer Alsabei (Sameer-13) [Twitter](https://mobile.twitter.com/Sameer_Alsabei), [Linked in](https://www.linkedin.com/in/sameer-alsabea-610291239/)
+
+Abdulrahman Alabdulkarim (TheGenio) [Twitter](https://twitter.com/GenioOwO), [Linked in](https://www.linkedin.com/in/abdulrahman-ak/)
+
+Osama Al-ibrahim (osamaalibrahim) [Twitter](https://twitter.com/alibrahim_77) [Linked in](https://www.linkedin.com/in/osama-alibrahim-4bb854227)
