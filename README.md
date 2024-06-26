@@ -1,11 +1,8 @@
-# xtreme
+# Xtreme
 
 
 ## Introduction
 Introducing Xtreme Project for KFUPM Google Developer Students Club Flutter Hackathon, a redesigned KFUPM student mobile application.
-
-### Features
-
 
 ## Installation
 ### Download and install the app by cloning the repository or downloading the zip file. 
@@ -16,7 +13,7 @@ Use the command
 
 Install dependencies from pubspec.yaml by running flutter packages from the project root (see using packages documentation for details and how to do this in the editor).
 
-Open and edit the project and enjoy using KFUPM Student App!
+Open and edit the project and enjoy using the KFUPM Student App!
 
 ## Screenshots:
 
@@ -42,6 +39,9 @@ Sultan Abbas (SultanAbbas0) [Twitter](), [Linked in]().
 
 Sameer Alsabei (Sameer-13) [Twitter](https://mobile.twitter.com/Sameer_Alsabei), [Linked in](https://www.linkedin.com/in/sameer-alsabea-610291239/)
 
- () [Twitter](), [Linked in]().
+Mahmoud Alhussen (SauceX22) [Twitter](https://twitter.com/SauceX22), [Linked in](https://www.linkedin.com/in/mahmoud-alhussen).
 
- () [Twitter](), [Linked in]()
+Reda Al Sulais (Yokozuna59) [Twitter](https://twitter.com/Yokozuna59), [Linked in](https://www.linkedin.com/in/reda-alsulais/?originalSubdomain=sa)
+
+Abdullah Abuzaid (Abdullah-Abuzaid) [Twitter](), [Linked in]().
+
