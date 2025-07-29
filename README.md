@@ -35,7 +35,7 @@ Open and edit the project and enjoy using the KFUPM Student App!
 ![photo_7_2024-06-26_03-26-56](https://github.com/SultanAbbas0/TeamXtreme/assets/106761486/ab871e6d-088a-41a3-afb6-3b0ccf424155)
 
 ## Authors
-Sultan Abbas (SultanAbbas0) [Twitter](), [Linked in]().
+Sultan Abbas (SultanAbbas0) [Twitter](), [Linked in](https://www.linkedin.com/in/sultan-abbas-978730260/).
 
 Sameer Alsabei (Sameer-13) [Twitter](https://mobile.twitter.com/Sameer_Alsabei), [Linked in](https://www.linkedin.com/in/sameer-alsabea-610291239/)
 
